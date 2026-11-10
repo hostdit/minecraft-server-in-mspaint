@@ -1,0 +1,5 @@
+file(GLOB sources CONFIGURE_DEPENDS *.cpp)
+add_library(mcpaint SHARED ${sources} mcpaint.def)
+set_target_properties(mcpaint PROPERTIES OUTPUT_NAME McPaint)
+target_compile_definitions(mcpaint PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
+target_link_libraries(mcpaint PRIVATE mcx_core shlwapi shell32 ole32 oleaut32 advapi32 gdi32 user32)
